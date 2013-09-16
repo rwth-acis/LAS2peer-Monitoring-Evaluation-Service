@@ -39,6 +39,7 @@ public class EvaluationService extends Service {
 	 */
 	public void sendMessages(){
 		long generatedMessages = 0;
+		int printOut = 0;
 		System.out.println("");
 		System.out.println("");
 		System.out.println("Interval is set to " + interval + " ms for each message to be generated");
@@ -51,8 +52,12 @@ public class EvaluationService extends Service {
 		}
 		while(generatedMessages < messagesToGenerate){
 			this.logMessage("Generated message of Evaluation Service");
-			System.out.println("Generated message number " + generatedMessages);
+			if(printOut == 0)
+				System.out.println("Generated message number " + generatedMessages);
 			generatedMessages++;
+			printOut++;
+			if(printOut == 1000)
+				printOut = 0; // only print every 1000th message since printing comsumes ressources
 			try {
 				Thread.sleep(interval);
 			} catch (InterruptedException e) {
