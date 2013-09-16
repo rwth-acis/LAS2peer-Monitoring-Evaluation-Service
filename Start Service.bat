@@ -1,4 +1,3 @@
-cd ..
 set BASE=%CD%
 set CLASSPATH="%BASE%/lib/*;"
 
