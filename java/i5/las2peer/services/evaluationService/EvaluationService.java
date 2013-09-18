@@ -36,6 +36,7 @@ public class EvaluationService extends Service {
 	 * This method builds the entry point to this service.
 	 * The two parameters interval and messagesToGenerate have to be set by the service's configuration file.
 	 * 
+	 * It generates the 
 	 */
 	public void sendMessages(){
 		long generatedMessages = 0;
@@ -46,24 +47,28 @@ public class EvaluationService extends Service {
 		System.out.println("Number of messages to be generated is set to " + messagesToGenerate);
 		System.out.println("Begin to send messages..");
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(5000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+		long startingTime = System.currentTimeMillis();
+		
 		while(generatedMessages < messagesToGenerate){
 			this.logMessage("Generated message of Evaluation Service");
 			if(printOut == 0)
 				System.out.println("Generated message number " + generatedMessages);
 			generatedMessages++;
 			printOut++;
-			if(printOut == 1000)
-				printOut = 0; // only print every 1000th message since printing comsumes ressources
+			if(printOut == 10000)
+				printOut = 0; // only print every 10000th message since printing consumes resources
 			try {
 				Thread.sleep(interval);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 		}
+		long finishTime = System.currentTimeMillis();
+		System.out.println("Took : " + ((finishTime - startingTime) / 1000) + " seconds to send " + messagesToGenerate + " messages.");
 	}
 	
 	
