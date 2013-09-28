@@ -47,7 +47,7 @@ public class EvaluationService extends Service {
 		System.out.println("Number of messages to be generated is set to " + messagesToGenerate);
 		System.out.println("Begin to send messages..");
 		try {
-			Thread.sleep(5000);
+			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
