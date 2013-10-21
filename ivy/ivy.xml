@@ -1,5 +1,5 @@
 <ivy-module version="2.0">
-    <info organisation="i5" module="las2peer-service"/>
+    <info organisation="i5" module="las2peer-evalService"/>
     <dependencies>
         <dependency org="i5" name="las2peer" rev="0.0.2" />
     </dependencies>
